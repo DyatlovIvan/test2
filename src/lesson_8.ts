@@ -91,10 +91,10 @@ export function sumFirstNumbers(N: number): number {
     //     result += i
     // }
     // return result
-    if(N===0){
+    if (N === 0) {
         return 0
     }
-    return sumFirstNumbers(N-1)+N
+    return sumFirstNumbers(N - 1) + N
 
 }
 
@@ -110,5 +110,37 @@ export function sumFirstNumbers(N: number): number {
 export function getBanknoteList(amountOfMoney: number): Array<number> {
     //...здесь пишем код.
     // В return стоит "заглушка", чтоб typescript не ругался
-    return [1]
+    let arr = [];
+    while (amountOfMoney >0) {
+        if (amountOfMoney >= 1000) {
+            amountOfMoney -= 1000;
+            arr.push(1000)
+        } else if (amountOfMoney >= 500 && amountOfMoney < 1000) {
+            amountOfMoney -= 500;
+            arr.push(500)
+        } else if (amountOfMoney >= 100 && amountOfMoney < 500) {
+            amountOfMoney -= 100;
+            arr.push(100)
+        } else if (amountOfMoney >= 50 && amountOfMoney < 100) {
+            amountOfMoney -= 50;
+            arr.push(50)
+        } else if (amountOfMoney >= 20 && amountOfMoney < 50) {
+            amountOfMoney -= 20;
+            arr.push(20)
+        } else if (amountOfMoney >= 10 && amountOfMoney < 20) {
+            amountOfMoney -= 10;
+            arr.push(10)
+        } else if (amountOfMoney >= 5 && amountOfMoney < 10) {
+            amountOfMoney -= 5;
+            arr.push(5)
+        } else if (amountOfMoney >= 2 && amountOfMoney < 5) {
+            amountOfMoney -= 2;
+            arr.push(2)
+        } else {
+            amountOfMoney -= 1;
+            arr.push(1)
+        }
+    }
+
+    return arr
 }
